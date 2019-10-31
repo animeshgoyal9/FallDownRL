@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "PyServer";
+option java_outer_classname = "PyServerProto";
+option objc_class_prefix = "HLW";
+
+package PyServer;
+
+service PyServer {
+  rpc sendRewards (RewardRequest) returns (RewardResponse) {}
+  rpc sentLocation (Location) returns (Action) {}
+}
+
+message RewardRequest {
+  int32 reward = 1;
+}
+
+message RewardResponse {
+  string reward = 1;
+}
+
+message Location {
+  int32 x = 1;
+  int32 y = 2;
+}
+
+message Action {
+  int32 result = 1;
+}
